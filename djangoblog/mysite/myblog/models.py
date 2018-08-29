@@ -13,6 +13,7 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+
 class Category(models.Model):
     name = models.CharField(max_length=128)
     description = models.TextField(blank=True)
@@ -23,4 +24,15 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
-# Create your models here.
+
+
+''' Use this if want to add posts back into the category
+    def display_posts(self):
+        """Create a string for posts. Required to display posts in Admin."""
+        return ', '.join(posts.content for posts in self.posts.all()[:2])
+
+    display_posts.short_description = 'Post'
+'''
+
+
+
